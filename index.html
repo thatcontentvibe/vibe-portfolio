@@ -36,6 +36,7 @@
   --purple: #8b5cf6;
   --cyan: #22d3ee;
   --orange: #ff8a1e;
+  --pastel-yellow: #ffe9a8;
   --font-display: 'Archivo Black', 'Segoe UI', sans-serif;
   --font-voice: 'Source Serif', Georgia, serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -64,9 +65,8 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
 .vp-mark { font-family: var(--font-display); font-size: 16px; }
 .vp-mark span { color: var(--accent); }
 
-.vp-hero { position: relative; padding: 48px 0 72px; min-height: 620px; }
+.vp-hero { position: relative; padding: 56px 0 24px; }
 .vp-tag {
-  position: absolute;
   font-family: var(--font-body);
   font-size: 12.5px;
   font-weight: 500;
@@ -76,9 +76,8 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
   border-radius: 3px;
   background: transparent;
   color: var(--hero-text);
-  opacity: 0;
-  rotate: var(--rot, 0deg);
-  animation: vpTumble 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  white-space: nowrap;
+  flex: none;
 }
 .vp-tag.pink { background: var(--pink); color: #2b0016; border-color: var(--pink); }
 .vp-tag.blue { background: var(--blue); color: #001a3d; border-color: var(--blue); }
@@ -88,23 +87,11 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
 .vp-tag.purple { background: var(--purple); color: #fff; border-color: var(--purple); }
 .vp-tag.cyan { background: var(--cyan); color: #002326; border-color: var(--cyan); }
 .vp-tag.orange { background: var(--orange); color: #3d1400; border-color: var(--orange); }
-.vp-tag.t1 { top: 0px; left: 0%; --rot: -9deg; animation-delay: 0.05s; }
-.vp-tag.t2 { top: 4px; right: 0%; --rot: 7deg; animation-delay: 0.2s; }
-.vp-tag.t3 { top: 148px; left: -3%; --rot: -4deg; animation-delay: 0.35s; }
-.vp-tag.t4 { top: 168px; right: 2%; --rot: 5deg; animation-delay: 0.5s; }
-.vp-tag.t9 { top: 296px; left: -1%; --rot: 6deg; animation-delay: 0.65s; }
-.vp-tag.t5 { bottom: 160px; left: -2%; --rot: 5deg; animation-delay: 0.8s; }
-.vp-tag.t6 { bottom: 128px; right: -1%; --rot: -6deg; animation-delay: 0.95s; }
-.vp-tag.t7 { bottom: 4px; left: 4%; --rot: 4deg; animation-delay: 1.1s; }
-.vp-tag.t8 { bottom: 0px; right: 3%; --rot: -5deg; animation-delay: 1.25s; }
-@keyframes vpTumble {
-  0% { translate: 0 -320px; rotate: calc(var(--rot) - 250deg); opacity: 0; }
-  55% { opacity: 1; }
-  78% { translate: 0 8px; rotate: calc(var(--rot) + 14deg); }
-  100% { translate: 0 0; rotate: var(--rot); opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) { .vp-tag { animation: none; opacity: 1; rotate: var(--rot, 0deg); } }
-@media (max-width: 700px) { .vp-tag { display: none; } }
+.vp-tag.pastel-yellow { background: var(--pastel-yellow); color: #5c4300; border-color: var(--pastel-yellow); }
+.vp-hero-ticker { overflow: hidden; padding: 4px 0 40px; }
+.vp-hero-ticker-row { display: flex; width: max-content; gap: 14px; animation: vpTickerLTR 30s linear infinite; }
+@keyframes vpTickerLTR { from { translate: -50% 0; } to { translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .vp-hero-ticker-row { animation: none; } }
 
 .vp-hero-inner { max-width: 600px; margin: 0 auto; text-align: center; padding-top: 0; position: relative; z-index: 1; }
 .vp-eyebrow { font-family: var(--font-voice); font-style: italic; font-size: 17px; color: var(--hero-muted); }
@@ -123,7 +110,6 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
 @keyframes vpSwipe { to { transform: scaleX(1); } }
 @media (prefers-reduced-motion: reduce) { .vp-mark-swipe::before { transform: scaleX(1); animation: none; } }
 .vp-hero-sub { font-family: var(--font-voice); font-style: italic; font-size: 16.5px; line-height: 1.55; color: var(--hero-muted); max-width: 44ch; margin: 18px auto 0; }
-.vp-hero-sub + .vp-hero-sub { margin-top: 12px; }
 .vp-hero-cta { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 .vp-btn {
@@ -216,27 +202,39 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
     </div>
 
     <header class="vp-hero">
-      <span class="vp-tag pink t1">pun intended</span>
-      <span class="vp-tag blue t2">believer of plot twists</span>
-      <span class="vp-tag yellow t3">paise ki kami</span>
-      <span class="vp-tag green t4">good under pressure</span>
-      <span class="vp-tag cyan t9">desi creative baddie</span>
-      <span class="vp-tag red t5">AI for grammar</span>
-      <span class="vp-tag purple t6">research obsessed</span>
-      <span class="vp-tag orange t7">ask me a fun fact</span>
-      <span class="vp-tag t8">hybrid genz+millennial</span>
-
       <div class="vp-hero-inner">
         <p class="vp-eyebrow">Hello. I'm Vibha Gupta —</p>
-        <h1 class="vp-headline">Convincing everyone to believe in products &amp; services <span class="vp-mark-swipe">through words.</span></h1>
-        <p class="vp-hero-sub">5+ years of experience turning ideas into words, stories, &amp; creative work.</p>
-        <p class="vp-hero-sub">Just a girl chasing dreams, making room for creativity, &amp; occasionally being distracted by cats; all while working in an incredible industry that never ceases to amaze me.</p>
+        <h1 class="vp-headline">Convincing everyone through words, <span class="vp-mark-swipe">professionally.</span></h1>
+        <p class="vp-hero-sub">5+ years of experience turning ideas into words, stories, &amp; creative work. Just a girl chasing dreams, making room for creativity, &amp; occasionally being distracted by cats; all while working in an incredible industry that never ceases to amaze me.</p>
         <div class="vp-hero-cta">
           <a class="vp-btn fill" href="#work">My Projects</a>
           <a class="vp-btn" href="#">Download Resume</a>
         </div>
       </div>
     </header>
+  </div>
+
+  <div class="vp-hero-ticker">
+    <div class="vp-hero-ticker-row">
+      <span class="vp-tag pink">pun intended</span>
+      <span class="vp-tag blue">believer of plot twists</span>
+      <span class="vp-tag yellow">paise ki kami</span>
+      <span class="vp-tag green">good under pressure</span>
+      <span class="vp-tag cyan">desi creative baddie</span>
+      <span class="vp-tag red">AI for grammar</span>
+      <span class="vp-tag purple">research obsessed</span>
+      <span class="vp-tag orange">ask me a fun fact</span>
+      <span class="vp-tag pastel-yellow">mix of genz &amp; millennial</span>
+      <span class="vp-tag pink">pun intended</span>
+      <span class="vp-tag blue">believer of plot twists</span>
+      <span class="vp-tag yellow">paise ki kami</span>
+      <span class="vp-tag green">good under pressure</span>
+      <span class="vp-tag cyan">desi creative baddie</span>
+      <span class="vp-tag red">AI for grammar</span>
+      <span class="vp-tag purple">research obsessed</span>
+      <span class="vp-tag orange">ask me a fun fact</span>
+      <span class="vp-tag pastel-yellow">mix of genz &amp; millennial</span>
+    </div>
   </div>
   </div>
 
