@@ -170,7 +170,10 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
   width: 100%;
   transform: rotateX(48deg);
   transform-origin: 50% 100%;
-  animation: vpStartrekUp 16s linear infinite;
+  animation-name: vpStartrekUp;
+  animation-duration: 16s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
   mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
 }
