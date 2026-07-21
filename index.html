@@ -43,14 +43,6 @@
   --light-brown: #d9b990;
   --pastel-red: #ffc4bf;
   --pastel-purple: #ddd0fb;
-  --card-purple: #7c3aed;
-  --card-pink: #d6217a;
-  --card-blue: #1d5fd1;
-  --card-green: #1e9e5a;
-  --card-cyan: #0e93a8;
-  --card-orange: #e0651a;
-  --card-amber: #b8860b;
-  --card-red: #e0281f;
   --font-display: 'Archivo Black', 'Segoe UI', sans-serif;
   --font-voice: 'Source Serif', Georgia, serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -159,32 +151,33 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
   background-image: radial-gradient(var(--grid-line) 1.6px, transparent 1.6px);
   background-size: 24px 24px;
 }
-.vp-what { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 88px 0; align-items: start; }
-.vp-what-left { position: sticky; top: 110px; }
+.vp-what { padding: 88px 0 24px; text-align: center; }
+.vp-what-center { max-width: 700px; margin: 0 auto; }
 .vp-what-eyebrow { font-family: var(--font-voice); font-style: italic; font-size: 17px; color: var(--hero-muted); }
 .vp-what-heading { font-size: clamp(34px, 5.2vw, 58px); line-height: 1.05; margin-top: 14px; }
-.vp-illustrations { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+.vp-illustrations { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; justify-content: center; }
 .vp-illustrations svg { width: 50px; height: 50px; flex: none; }
-.vp-deck { position: relative; padding-bottom: 40px; }
-.vp-deck-card {
-  position: sticky;
-  background: #fff;
-  border-radius: 16px;
-  padding: 26px 28px;
-  font-family: var(--font-display);
-  text-transform: none;
-  font-size: clamp(20px, 2.6vw, 27px);
+
+.vp-startrek { overflow: hidden; padding: 24px 0 64px; perspective: 320px; }
+.vp-startrek-row {
   display: flex;
-  align-items: center;
-  min-height: 76px;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.4);
-  margin-bottom: 16px;
+  gap: 48px;
+  width: max-content;
+  transform: rotateX(48deg);
+  transform-origin: 50% 100%;
+  animation: vpTickerLTR 22s linear infinite;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
 }
-.vp-deck-card.last { border: 2px dashed var(--accent); box-shadow: none; }
-@media (max-width: 800px) {
-  .vp-what { grid-template-columns: 1fr; }
-  .vp-what-left { position: static; }
+.vp-startrek-item {
+  font-family: var(--font-display);
+  font-size: 40px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--tape);
+  text-shadow: 0 0 18px rgba(255, 216, 77, 0.55);
 }
+@media (prefers-reduced-motion: reduce) { .vp-startrek-row { animation: none; } }
 
 .vp-work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .vp-card {
@@ -288,7 +281,7 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
   <div class="vp-what-dark">
     <div class="vp-wrap">
       <section class="vp-what">
-        <div class="vp-what-left">
+        <div class="vp-what-center">
           <p class="vp-what-eyebrow">the toolkit —</p>
           <h2 class="vp-what-heading">What <span class="vp-mark-swipe">I Do</span></h2>
           <div class="vp-illustrations">
@@ -298,18 +291,25 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
             <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 8 C20 8 10 24 18 38 C24 48 38 48 40 40 C42 34 36 32 32 36 C28 40 22 36 24 28 C27 17 40 16 44 26 C48 36 40 46 30 48" fill="none" stroke="#ff4b2b" stroke-width="5" stroke-linecap="round"/></svg>
           </div>
         </div>
-        <div class="vp-deck">
-          <div class="vp-deck-card" style="top:96px; z-index:1; color:var(--card-purple);">Strategy</div>
-          <div class="vp-deck-card" style="top:112px; z-index:2; color:var(--card-pink);">Copywriting</div>
-          <div class="vp-deck-card" style="top:128px; z-index:3; color:var(--card-blue);">Social media</div>
-          <div class="vp-deck-card" style="top:144px; z-index:4; color:var(--card-green);">Proofreading</div>
-          <div class="vp-deck-card" style="top:160px; z-index:5; color:var(--card-cyan);">Research</div>
-          <div class="vp-deck-card" style="top:176px; z-index:6; color:var(--card-orange);">Website copy</div>
-          <div class="vp-deck-card" style="top:192px; z-index:7; color:var(--card-amber);">UI/UX content</div>
-          <div class="vp-deck-card" style="top:208px; z-index:8; color:var(--card-red);">Product copy</div>
-          <div class="vp-deck-card last" style="top:224px; z-index:9; color:var(--accent);">Creative direction — next chapter</div>
-        </div>
       </section>
+    </div>
+    <div class="vp-startrek">
+      <div class="vp-startrek-row">
+        <span class="vp-startrek-item">Copywriting</span>
+        <span class="vp-startrek-item">Social Media</span>
+        <span class="vp-startrek-item">Strategy</span>
+        <span class="vp-startrek-item">Website Copy</span>
+        <span class="vp-startrek-item">Research</span>
+        <span class="vp-startrek-item">Blogs &amp; Oped</span>
+        <span class="vp-startrek-item">Emails &amp; Newsletters</span>
+        <span class="vp-startrek-item">Copywriting</span>
+        <span class="vp-startrek-item">Social Media</span>
+        <span class="vp-startrek-item">Strategy</span>
+        <span class="vp-startrek-item">Website Copy</span>
+        <span class="vp-startrek-item">Research</span>
+        <span class="vp-startrek-item">Blogs &amp; Oped</span>
+        <span class="vp-startrek-item">Emails &amp; Newsletters</span>
+      </div>
     </div>
   </div>
 
