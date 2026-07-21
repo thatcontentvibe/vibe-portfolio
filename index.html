@@ -158,21 +158,28 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
 .vp-illustrations { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; justify-content: center; }
 .vp-illustrations svg { width: 50px; height: 50px; flex: none; }
 
-.vp-startrek { overflow: hidden; padding: 24px 0 64px; perspective: 320px; }
+.vp-startrek { position: relative; height: 320px; overflow: hidden; perspective: 320px; margin-bottom: 24px; }
 .vp-startrek-row {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
-  gap: 48px;
-  width: max-content;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
   transform: rotateX(48deg);
   transform-origin: 50% 100%;
-  animation: vpTickerLTR 22s linear infinite;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  animation: vpStartrekUp 16s linear infinite;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
 }
+@keyframes vpStartrekUp { from { translate: 0 0; } to { translate: 0 -50%; } }
 .vp-startrek-item {
   font-family: var(--font-display);
   font-size: 40px;
   text-transform: uppercase;
+  text-align: center;
   white-space: nowrap;
   color: var(--tape);
   text-shadow: 0 0 18px rgba(255, 216, 77, 0.55);
