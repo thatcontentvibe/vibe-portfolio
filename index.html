@@ -43,6 +43,14 @@
   --light-brown: #d9b990;
   --pastel-red: #ffc4bf;
   --pastel-purple: #ddd0fb;
+  --card-purple: #7c3aed;
+  --card-pink: #d6217a;
+  --card-blue: #1d5fd1;
+  --card-green: #1e9e5a;
+  --card-cyan: #0e93a8;
+  --card-orange: #e0651a;
+  --card-amber: #b8860b;
+  --card-red: #e0281f;
   --font-display: 'Archivo Black', 'Segoe UI', sans-serif;
   --font-voice: 'Source Serif', Georgia, serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -145,22 +153,38 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
 .vp-section h2 { font-size: clamp(20px, 2.6vw, 26px); }
 .vp-section-note { font-family: var(--font-voice); font-style: italic; color: var(--muted); font-size: 15px; }
 
-.vp-ticker { width: 100vw; position: relative; left: 50%; margin-left: -50vw; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; }
-.vp-ticker-row { display: flex; width: max-content; gap: 0; animation: vpScroll 32s linear infinite; }
-@keyframes vpScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .vp-ticker-row { animation: none; } }
-.vp-ticker-item {
+.vp-what-dark {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  background-image: radial-gradient(var(--grid-line) 1.6px, transparent 1.6px);
+  background-size: 24px 24px;
+}
+.vp-what { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 88px 0; align-items: start; }
+.vp-what-left { position: sticky; top: 110px; }
+.vp-what-eyebrow { font-family: var(--font-voice); font-style: italic; font-size: 17px; color: var(--hero-muted); }
+.vp-what-heading { font-size: clamp(34px, 5.2vw, 58px); line-height: 1.05; margin-top: 14px; }
+.vp-illustrations { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+.vp-illustrations svg { width: 50px; height: 50px; flex: none; }
+.vp-deck { position: relative; padding-bottom: 40px; }
+.vp-deck-card {
+  position: sticky;
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px 28px;
   font-family: var(--font-display);
-  font-size: 26px;
-  text-transform: uppercase;
-  padding: 0 20px;
-  white-space: nowrap;
+  text-transform: none;
+  font-size: clamp(20px, 2.6vw, 27px);
   display: flex;
   align-items: center;
-  gap: 20px;
+  min-height: 76px;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.4);
+  margin-bottom: 16px;
 }
-.vp-ticker-item.next { color: var(--accent); }
-.vp-ticker-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+.vp-deck-card.last { border: 2px dashed var(--accent); box-shadow: none; }
+@media (max-width: 800px) {
+  .vp-what { grid-template-columns: 1fr; }
+  .vp-what-left { position: static; }
+}
 
 .vp-work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .vp-card {
@@ -261,26 +285,31 @@ h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance;
   </div>
   </div>
 
-  <div class="vp-ticker">
-    <div class="vp-ticker-row">
-      <span class="vp-ticker-item"><span class="dot"></span>Strategy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Copywriting</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Social media</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Proofreading</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Research</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Website copy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>UI/UX content</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Product copy</span>
-      <span class="vp-ticker-item next"><span class="dot"></span>Creative direction — next chapter</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Strategy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Copywriting</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Social media</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Proofreading</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Research</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Website copy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>UI/UX content</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Product copy</span>
-      <span class="vp-ticker-item next"><span class="dot"></span>Creative direction — next chapter</span>
+  <div class="vp-what-dark">
+    <div class="vp-wrap">
+      <section class="vp-what">
+        <div class="vp-what-left">
+          <p class="vp-what-eyebrow">the toolkit —</p>
+          <h2 class="vp-what-heading">What <span class="vp-mark-swipe">I Do</span></h2>
+          <div class="vp-illustrations">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40 Q32 58 56 40 Q52 48 32 50 Q12 48 8 40 Z" fill="#ff8a1e"/><ellipse cx="32" cy="20" rx="6" ry="10" fill="#ffd84d"/></svg>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 C46 16 46 40 32 60 C18 40 18 16 32 4 Z" fill="#2ed573"/><circle cx="32" cy="28" r="10" fill="#3b82f6"/><circle cx="32" cy="28" r="5" fill="#8b5cf6"/></svg>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="6" fill="#ff3da6"/><circle cx="32" cy="14" r="5" fill="#ffd84d"/><circle cx="48" cy="23" r="5" fill="#22d3ee"/><circle cx="48" cy="41" r="5" fill="#8b5cf6"/><circle cx="32" cy="50" r="5" fill="#2ed573"/><circle cx="16" cy="41" r="5" fill="#ff8a1e"/><circle cx="16" cy="23" r="5" fill="#ff3b30"/></svg>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 8 C20 8 10 24 18 38 C24 48 38 48 40 40 C42 34 36 32 32 36 C28 40 22 36 24 28 C27 17 40 16 44 26 C48 36 40 46 30 48" fill="none" stroke="#ff4b2b" stroke-width="5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="vp-deck">
+          <div class="vp-deck-card" style="top:96px; z-index:1; color:var(--card-purple);">Strategy</div>
+          <div class="vp-deck-card" style="top:112px; z-index:2; color:var(--card-pink);">Copywriting</div>
+          <div class="vp-deck-card" style="top:128px; z-index:3; color:var(--card-blue);">Social media</div>
+          <div class="vp-deck-card" style="top:144px; z-index:4; color:var(--card-green);">Proofreading</div>
+          <div class="vp-deck-card" style="top:160px; z-index:5; color:var(--card-cyan);">Research</div>
+          <div class="vp-deck-card" style="top:176px; z-index:6; color:var(--card-orange);">Website copy</div>
+          <div class="vp-deck-card" style="top:192px; z-index:7; color:var(--card-amber);">UI/UX content</div>
+          <div class="vp-deck-card" style="top:208px; z-index:8; color:var(--card-red);">Product copy</div>
+          <div class="vp-deck-card last" style="top:224px; z-index:9; color:var(--accent);">Creative direction — next chapter</div>
+        </div>
+      </section>
     </div>
   </div>
 
