@@ -74,29 +74,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 .vp-eyebrow { font-family: var(--font-voice); font-style: italic; font-size: 16px; color: var(--muted); }
 .vp-headline { font-size: clamp(38px, 8vw, 88px); line-height: 1.1; margin-top: 28px; max-width: none; }
 
-.vp-doodle {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  pointer-events: none; z-index: 1;
+.vp-cat {
+  position: absolute; top: 14%; right: 8%; width: 34px; height: 34px;
+  opacity: 0.55; pointer-events: none; z-index: 1;
+  animation: vpCatFloat 5s ease-in-out infinite;
 }
-.vp-doodle path {
-  fill: none; stroke: var(--tape); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;
-  stroke-dasharray: 1600; stroke-dashoffset: 1600; opacity: 0;
-  animation: vpDoodle 7s ease-in-out infinite;
+.vp-cat path, .vp-cat circle { stroke: var(--muted); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes vpCatFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -14px; }
 }
-.vp-doodle .d1 { animation-delay: 0s; }
-.vp-doodle .d2 { animation-delay: 0.2s; }
-.vp-doodle .d3 { animation-delay: 0.4s; }
-.vp-doodle .d4 { animation-delay: 0.6s; }
-.vp-doodle .d5 { animation-delay: 0.8s; }
-.vp-doodle .d6 { animation-delay: 1s; }
-@keyframes vpDoodle {
-  0% { stroke-dashoffset: 1600; opacity: 0.9; }
-  38% { stroke-dashoffset: 0; opacity: 0.9; }
-  60% { stroke-dashoffset: 0; opacity: 0.9; }
-  80% { stroke-dashoffset: 0; opacity: 0; }
-  100% { stroke-dashoffset: 1600; opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) { .vp-doodle path { animation: none; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .vp-cat { animation: none; } }
 .vp-hero-sub { font-size: 15px; color: var(--muted); letter-spacing: 0.02em; margin-top: 40px; }
 .vp-hero-cta { margin-top: 40px; }
 .vp-btn {
@@ -197,13 +185,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
       </div>
     </header>
   </div>
-  <svg class="vp-doodle" viewBox="0 0 1400 700" preserveAspectRatio="none" aria-hidden="true">
-    <path class="d1" d="M60,60 C20,90 30,140 80,150 C130,160 150,110 110,90 C85,77 70,100 95,115" />
-    <path class="d2" d="M950,40 L1080,20 L990,90 L1180,10 L1060,110 L1250,35 L1120,140 L1320,55" />
-    <path class="d3" d="M1100,250 C1050,220 1060,300 1120,280 C1180,260 1190,340 1240,310 C1290,280 1300,360 1350,330" />
-    <path class="d4" d="M80,380 L340,320 M100,410 L360,345 M90,440 L320,380" />
-    <path class="d5" d="M1000,480 C960,510 990,560 1040,545 C1090,530 1080,480 1030,495 C1010,500 1015,520 1035,515" />
-    <path class="d6" d="M1150,520 L1250,600 L1180,630 L1320,560 L1220,660 L1360,580" />
+  <svg class="vp-cat" viewBox="0 0 40 40" aria-hidden="true">
+    <path d="M8,12 L13,4 L16,13" />
+    <path d="M32,12 L27,4 L24,13" />
+    <circle cx="20" cy="21" r="12" />
+    <circle cx="15" cy="19" r="1.4" fill="var(--muted)" stroke="none" />
+    <circle cx="25" cy="19" r="1.4" fill="var(--muted)" stroke="none" />
+    <path d="M18,25 Q20,27 22,25" />
   </svg>
   </div>
 
