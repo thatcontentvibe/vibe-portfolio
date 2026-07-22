@@ -118,7 +118,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 /* stats */
 
 /* work list */
-.vp-work { padding: 72px 0 40px; }
+.vp-work { padding: 96px 0 40px; }
+.vp-work-break { display: flex; gap: 6px; margin-bottom: 40px; }
+.vp-work-break span { width: 26px; height: 5px; border-radius: 999px; }
 .vp-work-head { margin-bottom: 44px; }
 .vp-work-head h2 { font-size: clamp(24px, 3.2vw, 32px); }
 .vp-case { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; padding: 48px 0; border-top: 1px solid var(--line); }
@@ -126,12 +128,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 .vp-case-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .vp-tag-pill { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; }
 .vp-tag-pill.client { background: var(--card); border: 1px solid var(--line); color: var(--muted); }
-.vp-case h3 { font-size: clamp(19px, 2.4vw, 25px); text-transform: none; line-height: 1.25; }
-.vp-case p { font-family: var(--font-voice); font-style: italic; font-size: 15px; color: var(--muted); margin: 16px 0 24px; max-width: 46ch; }
-.vp-case p b { color: var(--white); font-style: normal; }
-.vp-case-metrics { display: flex; gap: 26px; flex-wrap: wrap; margin-bottom: 22px; }
-.vp-metric .n { display: block; font-family: var(--font-display); font-size: 19px; color: var(--white); }
-.vp-metric .l { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+.vp-case h3 { font-size: clamp(19px, 2.4vw, 25px); text-transform: none; line-height: 1.25; margin-bottom: 20px; }
 .vp-case-link { font-size: 13.5px; color: var(--accent); text-decoration: none; font-weight: 500; }
 .vp-case-media { aspect-ratio: 4/3; border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .vp-case-media span { font-size: 12px; color: rgba(255,255,255,0.75); font-family: var(--font-body); letter-spacing: 0.03em; background: rgba(0,0,0,0.2); padding: 6px 12px; border-radius: 999px; }
@@ -230,20 +227,21 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 
   <div class="vp-wrap">
     <section class="vp-work" id="work">
+      <div class="vp-work-break">
+        <span style="background:var(--pink);"></span>
+        <span style="background:var(--blue);"></span>
+        <span style="background:var(--green);"></span>
+        <span style="background:var(--tape);"></span>
+        <span style="background:var(--orange);"></span>
+      </div>
       <div class="vp-work-head">
         <h2>My Proud Projects</h2>
       </div>
 
       <article class="vp-case">
         <div>
-          <div class="vp-case-tags"><span class="vp-tag-pill client">[Client name]</span><span class="vp-tag-pill" style="background:var(--pink); color:#2b0016;">[Category]</span></div>
+          <div class="vp-case-tags"><span class="vp-tag-pill client">[Client name]</span></div>
           <h3>[A result-focused headline about what this project fixed.]</h3>
-          <p>[One line on the problem, and <b>the one insight</b> that changed the approach.]</p>
-          <div class="vp-case-metrics">
-            <div class="vp-metric"><span class="n">[+X%]</span><span class="l">[metric]</span></div>
-            <div class="vp-metric"><span class="n">[X]</span><span class="l">[metric]</span></div>
-            <div class="vp-metric"><span class="n">[X]</span><span class="l">[metric]</span></div>
-          </div>
           <a class="vp-case-link" href="#">Read the full case study →</a>
         </div>
         <div class="vp-case-media" style="background:linear-gradient(135deg, var(--pink), var(--purple));"><span>[case study visual]</span></div>
@@ -251,13 +249,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 
       <article class="vp-case rev">
         <div>
-          <div class="vp-case-tags"><span class="vp-tag-pill client">[Client name]</span><span class="vp-tag-pill" style="background:var(--blue); color:#001a3d;">[Category]</span></div>
+          <div class="vp-case-tags"><span class="vp-tag-pill client">[Client name]</span></div>
           <h3>[A result-focused headline about what this project fixed.]</h3>
-          <p>[One line on the problem, and <b>the one insight</b> that changed the approach.]</p>
-          <div class="vp-case-metrics">
-            <div class="vp-metric"><span class="n">[X%→X%]</span><span class="l">[metric]</span></div>
-            <div class="vp-metric"><span class="n">[X]</span><span class="l">[metric]</span></div>
-          </div>
           <a class="vp-case-link" href="#">Read the full case study →</a>
         </div>
         <div class="vp-case-media" style="background:linear-gradient(135deg, var(--blue), var(--cyan));"><span>[case study visual]</span></div>
@@ -265,13 +258,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 
       <article class="vp-case">
         <div>
-          <div class="vp-case-tags"><span class="vp-tag-pill client">[Client name]</span><span class="vp-tag-pill" style="background:var(--tape); color:var(--tape-ink);">[Category]</span></div>
+          <div class="vp-case-tags"><span class="vp-tag-pill client">[Client name]</span></div>
           <h3>[A result-focused headline about what this project fixed.]</h3>
-          <p>[One line on the problem, and <b>the one insight</b> that changed the approach.]</p>
-          <div class="vp-case-metrics">
-            <div class="vp-metric"><span class="n">[X–X%]</span><span class="l">[metric]</span></div>
-            <div class="vp-metric"><span class="n">[X–X%]</span><span class="l">[metric]</span></div>
-          </div>
           <a class="vp-case-link" href="#">Read the full case study →</a>
         </div>
         <div class="vp-case-media" style="background:linear-gradient(135deg, var(--orange), var(--tape));"><span>[case study visual]</span></div>
