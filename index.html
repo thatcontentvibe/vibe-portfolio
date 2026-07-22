@@ -35,7 +35,11 @@
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-.vp-page { background: var(--ink); color: var(--white); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; max-width: 100%; }
+.vp-page {
+  background: var(--ink); color: var(--white); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; max-width: 100%;
+  background-image: radial-gradient(rgba(247,244,236,0.07) 1.6px, transparent 1.6px);
+  background-size: 24px 24px;
+}
 .vp-wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; text-transform: uppercase; }
 
@@ -63,11 +67,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 .vp-nav-links a:hover { color: var(--white); }
 
 /* hero */
-.vp-section1 {
-  position: relative;
-  background-image: radial-gradient(rgba(247,244,236,0.07) 1.6px, transparent 1.6px);
-  background-size: 24px 24px;
-}
+.vp-section1 { position: relative; }
 .vp-nav, .vp-section1 > .vp-wrap { position: relative; z-index: 2; }
 .vp-hero { padding: 96px 0 56px; }
 .vp-eyebrow { font-family: var(--font-voice); font-style: italic; font-size: 16px; color: var(--muted); }
@@ -108,7 +108,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 .vp-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ticker */
-.vp-ticker { width: 100vw; position: relative; left: 50%; margin-left: -50vw; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; margin-top: 56px; }
+.vp-ticker { width: 100vw; position: relative; left: 50%; margin-left: -50vw; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; margin-top: 56px; background: var(--ink); background-image: none; }
 .vp-ticker-row { display: flex; width: max-content; gap: 0; animation: vpScroll 30s linear infinite; }
 @keyframes vpScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .vp-ticker-row { animation: none; } }
@@ -116,10 +116,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 .vp-ticker-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
 
 /* stats */
-.vp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 56px 0; border-bottom: 1px solid var(--line); }
-.vp-stat-num { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); color: var(--accent); }
-.vp-stat-label { font-size: 12.5px; color: var(--muted); letter-spacing: 0.02em; margin-top: 6px; }
-@media (max-width: 640px) { .vp-stats { grid-template-columns: 1fr; gap: 32px; } }
 
 /* work list */
 .vp-work { padding: 72px 0 40px; }
@@ -215,33 +211,27 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 
   <div class="vp-ticker">
     <div class="vp-ticker-row">
-      <span class="vp-ticker-item"><span class="dot"></span>Copywriting</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Social Media</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Strategy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Website Copy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Research</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Blogs &amp; Oped</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Emails &amp; Newsletters</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Copywriting</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Social Media</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Strategy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Website Copy</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Research</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Blogs &amp; Oped</span>
-      <span class="vp-ticker-item"><span class="dot"></span>Emails &amp; Newsletters</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--pink);"></span>Copywriting</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--blue);"></span>Social Media</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--green);"></span>Strategy</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--purple);"></span>Website Copy</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--cyan);"></span>Research</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--orange);"></span>Blogs &amp; Oped</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--tape);"></span>Emails &amp; Newsletters</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--pink);"></span>Copywriting</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--blue);"></span>Social Media</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--green);"></span>Strategy</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--purple);"></span>Website Copy</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--cyan);"></span>Research</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--orange);"></span>Blogs &amp; Oped</span>
+      <span class="vp-ticker-item"><span class="dot" style="background:var(--tape);"></span>Emails &amp; Newsletters</span>
     </div>
   </div>
 
   <div class="vp-wrap">
-    <section class="vp-stats">
-      <div><div class="vp-stat-num">[X]+</div><div class="vp-stat-label">years writing</div></div>
-      <div><div class="vp-stat-num">[X]+</div><div class="vp-stat-label">campaigns shipped</div></div>
-      <div><div class="vp-stat-num">[X]%</div><div class="vp-stat-label">average lift, across the ones that worked</div></div>
-    </section>
-
     <section class="vp-work" id="work">
       <div class="vp-work-head">
-        <h2>Selected work</h2>
+        <h2>My Proud Projects</h2>
       </div>
 
       <article class="vp-case">
