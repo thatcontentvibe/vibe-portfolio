@@ -41,10 +41,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
 
 .vp-mark-swipe { position: relative; display: inline-block; }
 .vp-mark-swipe::before {
-  content: ""; position: absolute; left: -4px; right: -4px; bottom: 2px; top: 42%;
+  content: ""; position: absolute; left: -6px; right: -8px; bottom: 0; top: 38%;
   background: var(--accent); z-index: -1; transform: scaleX(0); transform-origin: left;
+  border-radius: 2px 10px 3px 8px;
   animation: vpSwipe 0.7s ease-out 0.5s forwards;
 }
+.vp-mark-swipe.tape::before { background: var(--tape); rotate: -1.4deg; }
 @keyframes vpSwipe { to { transform: scaleX(1); } }
 @media (prefers-reduced-motion: reduce) { .vp-mark-swipe::before { transform: scaleX(1); animation: none; } }
 
@@ -71,6 +73,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
   text-decoration: none; background: var(--accent); padding: 16px 30px; border-radius: 999px;
   display: inline-block;
 }
+.vp-btn.outline { background: transparent; color: var(--white); border: 1px solid var(--line); padding: 15px 29px; }
+.vp-btn.outline:hover { border-color: var(--accent); }
+.vp-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ticker */
 .vp-ticker { width: 100vw; position: relative; left: 50%; margin-left: -50vw; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; margin-top: 56px; }
@@ -159,9 +164,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: bala
   <div class="vp-wrap">
     <header class="vp-hero">
       <p class="vp-eyebrow">Hello, I'm Vibha —</p>
-      <h1 class="vp-headline">Overthinking until I stop thinking, <span class="vp-mark-swipe">professionally.</span></h1>
+      <h1 class="vp-headline">Overthinking until I stop thinking, <span class="vp-mark-swipe tape">professionally.</span></h1>
       <p class="vp-hero-sub">Sr. Copywriter · 5+ Years · Growth &amp; Conversion</p>
-      <div class="vp-hero-cta"><a class="vp-btn" href="#work">See the work ↓</a></div>
+      <div class="vp-hero-cta">
+        <a class="vp-btn" href="#work">See the work ↓</a>
+        <a class="vp-btn outline" href="#">See Resume</a>
+      </div>
     </header>
   </div>
 
